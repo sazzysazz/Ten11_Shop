@@ -25,7 +25,7 @@
                                 </div>
                                 <div class="detail">
                                     <div class="price-list">
-                                        @if($value->regular_price)
+                                        @if($value->regular_price!=0)
                                             <div class="regular-price"><strike>US {{ $value->regular_price }}</strike></div>
                                             <div class="sale-price">US {{ $value->sale_price }}</div>
                                         @else

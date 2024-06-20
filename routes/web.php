@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\LogoController;
 use App\Http\Controllers\backend\productsController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\frontend\frontendproductsController;
+use App\Http\Controllers\frontend\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -60,9 +61,12 @@ Route::controller(productsController::class)->group(function(){
     Route::post('/delete-product','deleteProduct')->name('delete-product');
     
 });
+Route::controller(HomeController::class)->group(function(){
+    Route::get('/','getAllPro')->name('get-all-pro');
+});
 
 Route::controller(frontendproductsController::class)->group(function(){
-    Route::get('/','getAllPro')->name('get-all-pro');
+  
     Route::get('/shop','shopProduct')->name('shop-product');
     Route::get('/product-detail/{product}','productDaltail')->name('product-deltail');
     Route::get('/buy-product/{product}','BuyProduct')->name('buy-product');

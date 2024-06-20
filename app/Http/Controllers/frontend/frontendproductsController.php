@@ -8,12 +8,12 @@ use Illuminate\Http\Request;
 
 class frontendproductsController extends Controller
 {
-    public function getAllPro() {
-        $newProducts = Product::query()->orderBy('id', 'DESC')->limit(8)->get();
-        $popularProducts = Product::query()->orderBy('views', 'DESC')->limit(8)->get();
-        $promotionProducts = Product::query()->where('regular_price', '>', 0)->limit(8)->get();
-        return view('frontend.home', compact('newProducts', 'popularProducts', 'promotionProducts'));
-    }
+    // public function getAllPro() {
+    //     $newProducts = Product::query()->orderBy('id', 'DESC')->limit(8)->get();
+    //     $popularProducts = Product::query()->orderBy('views', 'DESC')->limit(8)->get();
+    //     $promotionProducts = Product::query()->where('regular_price', '>', 0)->limit(8)->get();
+    //     return view('frontend.home', compact('newProducts', 'popularProducts', 'promotionProducts'));
+    // }
     public function shopProduct(){
         $product=Product::query()->orderby('id','DESC')->get();
         return view('frontend.shop',compact('product'));
@@ -23,6 +23,7 @@ class frontendproductsController extends Controller
                               ->where('id', '!=', $product->id)
                               ->take(4)
                               ->get();
+        Product::query()->where('id',$product->id)->update(['views'=>$product->views+1]);
         return view('frontend.product-detail',compact('product','relatedProducts'));
     }
     public function BuyProduct(Product $product, $qty = 1) {
