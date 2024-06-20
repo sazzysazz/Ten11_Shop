@@ -50,23 +50,29 @@
                 </div>
                 <div class="row">
                     @foreach ($promotionProducts as $value)
-                        <div class="col-3">
-                            <figure>
-                                <div class="thumbnail">
+                    <div class="col-3">
+                        <figure>
+                            <div class="thumbnail">
+                                @if($value->regular_price != 0)
                                     <div class="status">Promotion</div>
-                                    <a href="{{route('product-deltail',$value->id)}}">
-                                        <img src="{{ url('image/', $value->thumbnail) }}" alt="">
-                                    </a>
-                                </div>
-                                <div class="detail">
-                                    <div class="price-list">
+                                @endif
+                                <a href="{{route('product-deltail',$value->id)}}">
+                                    <img src="{{ url('image/', $value->thumbnail) }}" alt="">
+                                </a>
+                            </div>
+                            <div class="detail">
+                                <div class="price-list">
+                                    @if($value->regular_price!=0)
                                         <div class="regular-price"><strike>US {{ $value->regular_price }}</strike></div>
                                         <div class="sale-price">US {{ $value->sale_price }}</div>
-                                    </div>
-                                    <h5 class="title">{{ $value->proName }}</h5>
+                                    @else
+                                        <div class="price">US {{ $value->sale_price }}</div>
+                                    @endif
                                 </div>
-                            </figure>
-                        </div>
+                                <h5 class="title">{{ $value->proName }}</h5>
+                            </div>
+                        </figure>
+                    </div>
                     @endforeach
                 </div>
             </div>
