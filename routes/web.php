@@ -4,6 +4,7 @@ use App\Http\Controllers\backend\categoryoController;
 use App\Http\Controllers\Backend\LogoController;
 use App\Http\Controllers\backend\productsController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\frontend\frontendproductsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -57,6 +58,10 @@ Route::controller(productsController::class)->group(function(){
     Route::get('/edit-product/{product}','editProduct')->name('edit-product');
     Route::post('/edit-product-submit/{product}','editProductSubmit')->name('edit-product-submit');
     Route::post('/delete-product','deleteProduct')->name('delete-product');
+    
+});
+
+Route::controller(frontendproductsController::class)->group(function(){
     Route::get('/','getAllPro')->name('get-all-pro');
     Route::get('/shop','shopProduct')->name('shop-product');
     Route::get('/product-detail/{product}','productDaltail')->name('product-deltail');
@@ -75,24 +80,7 @@ Route::controller(productsController::class)->group(function(){
     Route::get('/get-by-hight-price','getByHightprice')->name('get-by-hight-price');
     Route::get('/get-by-low-price','getByLowPrice')->name('get-by-low-price');
     Route::get('/promotion-product','promotionProduct')->name('promotion-product');
-
-
-
-
-
-
-
-
-    
-    // Route::get('/buy/{id}', 'buyProduct')->name('buy');
-    // Route::post('/checkout', 'checkout')->name('checkout');
-    // Route::post('/complete-checkout', 'completeCheckout')->name('completeCheckout');
-
-
-
-
 });
-
 
 
 // Route::view('/', 'frontend.home')->name('home');
