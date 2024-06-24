@@ -4,6 +4,7 @@ use App\Http\Controllers\backend\categoryoController;
 use App\Http\Controllers\Backend\LogoController;
 use App\Http\Controllers\backend\productsController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\frontend\detailController;
 use App\Http\Controllers\frontend\frontendproductsController;
 use App\Http\Controllers\frontend\HomeController;
 use Illuminate\Support\Facades\Auth;
@@ -65,29 +66,17 @@ Route::controller(HomeController::class)->group(function(){
     Route::get('/','getAllPro')->name('get-all-pro');
 });
 
-Route::controller(frontendproductsController::class)->group(function(){
-  
-    Route::get('/shop','shopProduct')->name('shop-product');
+Route::controller(detailController::class)->group(function(){
     Route::get('/product-detail/{product}','productDaltail')->name('product-deltail');
+});
+
+Route::controller(frontendproductsController::class)->group(function(){
+    Route::get('/shop','shop')->name('shop');
     Route::get('/buy-product/{product}','BuyProduct')->name('buy-product');
     Route::post('/buy-product-submit/{product}','BuyProductsubmit')->name('buy-product-submit');
-    Route::get('/get-by-man','getByMan')->name('get-by-man');
-    Route::get('/get-by-man','getByMan')->name('get-by-man');
-    Route::get('/get-by-women','getByWomen')->name('get-by-women');
-    Route::get('/get-by-boy','getByBoy')->name('get-by-boy');
-    Route::get('/get-by-girl','getByGirl')->name('get-by-girl');
-    Route::get('/get-by-shirt','getByshirt')->name('get-by-shirt');
-    Route::get('/get-by-jeans','getByjeans')->name('get-by-jeans');
-    Route::get('/get-by-Cargo','getByCargo')->name('get-by-Cargo');
-    Route::get('/get-by-shoes','getByshoes')->name('get-by-shoes');
     Route::get('/search-product','searchProduct')->name('search-product');
-    Route::get('/get-by-hight-price','getByHightprice')->name('get-by-hight-price');
-    Route::get('/get-by-low-price','getByLowPrice')->name('get-by-low-price');
-    Route::get('/promotion-product','promotionProduct')->name('promotion-product');
+
 });
 
 
-// Route::view('/', 'frontend.home')->name('home');
-// Route::view('/shop', 'frontend.shop')->name('shop');
 Route::view('/news', 'frontend.news')->name('news');
-// Route::view('/product-detail', 'frontend.product-detail')->name('product-detail');
