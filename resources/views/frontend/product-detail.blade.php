@@ -9,8 +9,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-5">
-                    <div class="thumbnail">
-                        <img src="{{ url('image/', $product->thumbnail) }}" alt="{{ $product->proName }}">
+                    <div  class="thumbnail">
+                        <img  width="400" src="{{ url('image/', $product->thumbnail) }}" alt="{{ $product->proName }}">
                     </div>
                 </div>
                 <div class="col-7">
