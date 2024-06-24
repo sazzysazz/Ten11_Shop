@@ -10,7 +10,9 @@ class frontendproductsController extends Controller
 {
 
     public function shopProduct(){
-        $product=Product::query()->orderby('id','DESC')->get();
+        $product=Product::query()->orderby('id','DESC')
+                                ->limit(6)
+                                ->get();
         return view('frontend.shop',compact('product'));
     }
     public function productDaltail(Product $product){

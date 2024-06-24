@@ -27,6 +27,6 @@ class AppServiceProvider extends ServiceProvider
             $view->with('logo', $logo);
         });
 
-        Paginator::useBootstrap();
+        Paginator::useBootstrapFive();
     }
 }

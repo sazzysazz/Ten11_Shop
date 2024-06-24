@@ -35,7 +35,8 @@
                             </div>
                         @empty
                             <p>No products available</p>
-                        @endforelse                  
+                        @endforelse
+                                          
                     </div>
                 </div>
                 <div class="col-3 filter">
