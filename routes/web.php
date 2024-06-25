@@ -89,5 +89,10 @@ Route::controller(BackendNewsController::class)->group(function(){
     Route::post('/delete-news','deleteNews')->name('delete-news');
 });
 
+Route::controller(newsController::class)->group(function(){
+    Route::get('/get-news','getAllNews')->name('get-news');
+    Route::get('/news-detail/{news}','newDetail')->name('news-detail');
+});
 
-Route::view('/news', 'frontend.news')->name('news');
+
+// Route::view('/news', 'frontend.news')->name('news');

@@ -14,22 +14,26 @@
                     </div>
                 </div>
                 <div class="row">
-                    @for ($i = 0; $i < 8; $i++)
-                        <div class="col-3">
-                            <figure>
-                                <div class="thumbnail">
-                                    <a href="/article">
-                                        <img src="https://placehold.co/300x300" alt="">
-                                    </a>
-                                </div>
-                                <div class="detail">
-                                    <h5 class="title">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born</h5>
-                                </div>
-                            </figure>
-                        </div>
-                    @endfor
+                    @foreach ($allNews as $item)
+                    <div class="col-3">
+                        <figure>
+                            <div class="thumbnail">
+                                <a href="{{route('news-detail',$item->id)}}">
+                                    <img src="{{url('image/',$item->image)}}" alt="">
+                                </a>
+                            </div>
+                            <div class="detail">
+                                <h3 class="title">{{$item->title}}</h5>
+                                <h5 class="description">{{$item->description}}</h5>
+                            </div>
+                        </figure>
+                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>
+        <div class="mx-5 mt-5">
+            {{$allNews->links()}}
+        </div>
     </main>
 @endsection

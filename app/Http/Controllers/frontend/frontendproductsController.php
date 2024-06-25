@@ -10,27 +10,24 @@ use Illuminate\Http\Request;
 class frontendproductsController extends Controller
 {
 
-    public function shop(Request $request)
-    {
-        $queryProduct = Product::query();
-
-        if ($request->cate) {
-            $queryProduct->where('cate_id', $request->cate);
-        }
-
-        if ($request->price) {
-            if ($request->price == 'max') {
-                $queryProduct->orderBy('sale_price', 'DESC');
-            } else {
-                $queryProduct->orderBy('sale_price', 'ASC');
+    public function shop(Request $request){
+        $allProduct=Product::query();
+        if($request->cate){
+            $allProduct->where('cate_id','=',$request->cate);
+        }elseif($request->price){
+            if($request->price =='max'){
+                $allProduct->orderBy('sale_price','DESC');
+            }else{
+                $allProduct->orderBy('sale_price','ASC');
             }
+        }elseif($request->promotion){
+            $allProduct->where('regular_price','<>',0);
         }
-
-        $listProduct = $queryProduct->paginate(6);
-
-        $categories = Category::orderBy('id', 'DESC')->get();
-
-        return view('frontend.shop', compact('listProduct', 'categories'));
+        $products=$allProduct->paginate(6);
+        $category=Category::query()
+                            ->orderBy('id','DESC')
+                            ->get();
+        return view('frontend.shop',compact('products','category'));
     }
 
 

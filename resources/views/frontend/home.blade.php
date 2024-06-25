@@ -87,26 +87,30 @@
                 </div>
                 <div class="row">
                     @foreach ($popularProducts as $value)
-                        <div class="col-3">
-                            <figure>
-                                <div class="thumbnail">
-                                    <a href="{{route('product-deltail',$value->id)}}">
-                                        <img src="{{ url('image/', $value->thumbnail) }}" alt="">
-                                    </a>
+                    <div class="col-3">
+                        <figure>
+                            <div class="thumbnail">
+                                @if ($value->regular_price!=0)
+                                <div class="status">
+                                    Promotion
                                 </div>
-                                <div class="detail">
-                                    <div class="price-list">
-                                        @if($value->regular_price)
-                                            <div class="regular-price"><strike>US {{ $value->regular_price }}</strike></div>
-                                            <div class="sale-price">US {{ $value->sale_price }}</div>
-                                        @else
-                                            <div class="price">US {{ $value->sale_price }}</div>
-                                        @endif
-                                    </div>
-                                    <h5 class="title">{{ $value->proName }}</h5>
+                                @endif
+                                <a href="{{route('product-deltail',$value->id)}}">
+                                    <img src="{{url('image/',$value->thumbnail)}}" alt="">
+                                </a>
+                            </div>
+                            <div class="detail">
+                                <div class="price-list">
+                                    <div class="price d-none">US 10</div>
+                                    @if ($value->regular_price!=0)
+                                        <div class="regular-price "><strike>US {{$value->regular_price}}</strike></div>
+                                    @endif
+                                    <div class="sale-price ">US {{$value->sale_price}}</div>
                                 </div>
-                            </figure>
-                        </div>
+                                <h5 class="title">{{$value->proName}}</h5>
+                            </div>
+                        </figure>
+                    </div>
                     @endforeach
                 </div>
             </div>

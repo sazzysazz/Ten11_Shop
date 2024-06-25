@@ -22,7 +22,7 @@
         <ul class="menu d-flex">
             <li><a href="/">HOME</a></li>
             <li><a href="/shop">SHOP</a></li>
-            <li><a href="/news">NEWS</a></li>
+            <li><a href="/get-news">NEWS</a></li>
         </ul>
         <div class="search">
             <form action="{{ route('search-product') }}" method="get" class="d-flex">
