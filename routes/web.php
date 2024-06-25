@@ -2,11 +2,13 @@
 
 use App\Http\Controllers\backend\categoryoController;
 use App\Http\Controllers\Backend\LogoController;
+use App\Http\Controllers\Backend\newsController as BackendNewsController;
 use App\Http\Controllers\backend\productsController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\frontend\detailController;
 use App\Http\Controllers\frontend\frontendproductsController;
 use App\Http\Controllers\frontend\HomeController;
+use App\Http\Controllers\frontend\newsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -76,6 +78,15 @@ Route::controller(frontendproductsController::class)->group(function(){
     Route::post('/buy-product-submit/{product}','BuyProductsubmit')->name('buy-product-submit');
     Route::get('/search-product','searchProduct')->name('search-product');
 
+});
+
+Route::controller(BackendNewsController::class)->group(function(){
+    Route::get('/list-news','listNews')->name('list-news');
+    Route::get('/add-news','addNews')->name('add-news');
+    Route::post('/add-news-submit','addNewsSubmit')->name('add-news-submit');
+    Route::get('/edit-news/{news}','editNews')->name('edit-news');
+    Route::post('/edit-news-submit/{news}','editNewsSubmit')->name('edit-news-submit');
+    Route::post('/delete-news','deleteNews')->name('delete-news');
 });
 
 

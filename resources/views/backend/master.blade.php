@@ -191,6 +191,26 @@
               </ul>
             </li>
 
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-bolt-circle"></i>
+                <div data-i18n="Layouts">News</div>
+              </a>
+
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="{{route('list-news')}}" class="menu-link">
+                    <div data-i18n="Without menu">View News</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="{{route('add-news')}}" class="menu-link">
+                    <div data-i18n="Without menu">Add News</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
             <!-- Layouts -->
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
