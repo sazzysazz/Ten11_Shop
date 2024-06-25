@@ -24,7 +24,7 @@ class categoryoController extends Controller
         $res=Category::create($input);
         $res->save();
         if($res){
-            return redirect('list-category');
+            return redirect('add-category');
         }
     }
 
