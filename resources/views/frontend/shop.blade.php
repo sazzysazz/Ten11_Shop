@@ -40,6 +40,9 @@
                         </div>
                         @endforeach
                     </div>
+                    <div class="mx-5 mt-5">
+                        {{$products->links()}}
+                    </div>
                 </div>
                 <div class="col-3 filter">
                     <h4 class="title">Category</h4>
@@ -69,9 +72,7 @@
             </div>
 
         </div>
-        <div class="mx-5 mt-5">
-            {{$products->links()}}
-        </div>
+        
     </section>
 
 </main>

@@ -32,7 +32,7 @@ class userController extends Controller
         $res=User::create($input);
         $res->save();
         if($res){
-            return 'success';
+            return view('backend.login');
         }
     }
 

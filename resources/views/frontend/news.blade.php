@@ -19,7 +19,7 @@
                         <figure>
                             <div class="thumbnail">
                                 <a href="{{route('news-detail',$item->id)}}">
-                                    <img src="{{url('image/',$item->image)}}" alt="">
+                                    <img width="500" src="{{url('image/',$item->image)}}" alt="">
                                 </a>
                             </div>
                             <div class="detail">

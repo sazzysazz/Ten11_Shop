@@ -7,8 +7,8 @@ NL SHOPPING
 <style>
     .shop.news-blog .review .container .image{
         /* background-color: red; */
-        width: 500px;
-        height: 400px;
+        width: 400px;
+        height: 550px;
     }
     .shop.news-blog .review .container .image img{
         width: 100%;
@@ -27,7 +27,7 @@ NL SHOPPING
             <div class="row">
                 <div class="col-5">
                     <div class="image">
-                        <img src="{{url('image/'.$news->image)}}" alt="">
+                        <img  src="{{url('image/'.$news->image)}}" alt="">
                     </div>
                 </div>
                 <div class="col-7">
